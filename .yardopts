@@ -1,0 +1,4 @@
+--title 'ActiveRecord DynamoDB'
+--template-path doc-src/templates
+--plugin sitemap
+--hide-api private

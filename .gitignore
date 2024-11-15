@@ -1,3 +1,7 @@
 .idea/
 Gemfile.lock
 gemfiles/*.gemfile.lock
+
+test/dummy/app/model
+test/dummy/db/migrate
+test/dummy/log/

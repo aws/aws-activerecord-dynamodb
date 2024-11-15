@@ -12,7 +12,9 @@ group :development do
 end
 
 group :test do
+  gem 'bcrypt'
   gem 'rspec'
+  gem 'minitest-spec-rails'
 end
 
 group :docs do
