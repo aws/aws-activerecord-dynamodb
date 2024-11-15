@@ -26,7 +26,7 @@ module AwsRecord
         def initialize(args, *options)
           options[0] << "--skip-table-config" if options[1][:behavior] == :revoke
           @parse_errors = []
-          
+
           super
           ensure_unique_fields
           ensure_hkey
