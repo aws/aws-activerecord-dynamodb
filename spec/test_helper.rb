@@ -1,18 +1,7 @@
-# Copyright 2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
-#
-# Licensed under the Apache License, Version 2.0 (the "License"). You may not
-# use this file except in compliance with the License. A copy of the License is
-# located at
-#
-#     http://aws.amazon.com/apache2.0/
-#
-# or in the "license" file accompanying this file. This file is distributed on
-# an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
-# or implied. See the License for the specific language governing permissions
-# and limitations under the License.
+# frozen_string_literal: true
 
 require "rails/generators/rails/app/app_generator"
-require "rails/generators/testing/behaviour"
+require "rails/generators/testing/behavior"
 require "rails/generators/testing/assertions"
 require "fileutils"
 require "minitest/spec"
@@ -23,7 +12,7 @@ module AwsRecord
       include Minitest::Assertions
       attr_accessor :assertions
 
-      include Rails::Generators::Testing::Behaviour
+      include Rails::Generators::Testing::Behavior
       include Rails::Generators::Testing::Assertions
       include FileUtils
 
@@ -82,7 +71,7 @@ module AwsRecord
 
       def setup_test_app
         Rails::Generators::AppGenerator.start [destination_root, '--skip-bundle', '--skip-git', '--skip-spring', '--skip-test', '--force', '--quiet', '--skip-webpack-install']
-        `echo 'gem "aws-record-generator", :path => "../../"' >> "#{destination_root}/Gemfile"`
+        `echo 'gem "aws-activerecord-dynamodb", :path => "../../"' >> "#{destination_root}/Gemfile"`
         `bundle install --gemfile "#{destination_root}/Gemfile"`
       end
     end
