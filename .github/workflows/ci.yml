@@ -67,9 +67,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set BUNDLE_WITHOUT
-        run: echo "BUNDLE_WITHOUT=test docs release" >> $GITHUB_ENV
-
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:

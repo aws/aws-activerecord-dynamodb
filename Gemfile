@@ -20,7 +20,6 @@ end
 group :development do
   gem 'byebug', platforms: :ruby
   gem 'rubocop'
-  gem 'rubocop-minitest'
 end
 
 group :test do
