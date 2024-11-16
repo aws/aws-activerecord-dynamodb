@@ -2,11 +2,10 @@
 
 require 'test_helper'
 
-require 'generators/aws_record/model/generated_attribute'
-
 module AwsRecord
   module Generators
-    describe GeneratedAttribute do
+    # @api private
+    class GeneratedAttributeTest < Minitest::Test
       describe 'when given valid input' do
         it 'sets the name and type correctly' do
           params = 'uuid:int'

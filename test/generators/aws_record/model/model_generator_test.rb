@@ -18,15 +18,13 @@ module AwsRecord
         assert exp == act
       end
 
-      def run_generator(args)
+      def run_generator(args, config = {})
         result = nil
         capture(:stderr) do
-          result = super(args)
+          result = super(args, config)
         end
         result
       end
-
-      ### Model validations
 
       def test_model_basic
         run_generator %w[TestModelBasic uuid:hkey --table-config=primary:5-2 -f]

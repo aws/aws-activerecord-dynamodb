@@ -61,7 +61,7 @@ jobs:
           BUNDLE_GEMFILE: gemfiles/rails-${{ matrix.rails }}.gemfile
 
       - name: Test
-        run: bundle exec rake spec
+        run: bundle exec rake test
         env:
           BUNDLE_GEMFILE: gemfiles/rails-${{ matrix.rails }}.gemfile
 

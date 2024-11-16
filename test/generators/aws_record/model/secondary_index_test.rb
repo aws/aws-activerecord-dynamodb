@@ -2,11 +2,10 @@
 
 require 'test_helper'
 
-require 'generators/aws_record/model/secondary_index'
-
 module AwsRecord
   module Generators
-    describe SecondaryIndex do
+    # @api private
+    class SecondaryIndexTest < Minitest::Test
       describe 'when given correct params' do
         it 'sets its properties correctly' do
           params = 'Model:hkey{uuid},rkey{title}'

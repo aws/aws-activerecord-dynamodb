@@ -13,8 +13,8 @@ end
 
 group :test do
   gem 'bcrypt'
-  gem 'rspec'
   gem 'minitest-spec-rails'
+  gem 'rspec-rails'
 end
 
 group :docs do
