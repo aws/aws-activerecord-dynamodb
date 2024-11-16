@@ -22,7 +22,7 @@ module AwsRecord
       def test_generates_controller_skeleton_properly
         run_generator %w[ControllerSkeletonTest name age:int --skip-table-config -f]
 
-        assert_file "app/controllers/controller_skeleton_tests_controller.rb" do |content|
+        assert_file 'app/controllers/controller_skeleton_tests_controller.rb' do |content|
           assert_match(/class ControllerSkeletonTestsController < ApplicationController/, content)
 
           assert_instance_method :index, content do |m|
@@ -38,7 +38,8 @@ module AwsRecord
           assert_instance_method :edit, content
 
           assert_instance_method :create, content do |m|
-            assert_match(/@controller_skeleton_test = ControllerSkeletonTest\.new\(controller_skeleton_test_params\)/, m)
+            assert_match(/@controller_skeleton_test = ControllerSkeletonTest\.new\(controller_skeleton_test_params\)/,
+                         m)
             assert_match(/@controller_skeleton_test\.save/, m)
           end
 
@@ -52,7 +53,9 @@ module AwsRecord
           end
 
           assert_instance_method :set_controller_skeleton_test, content do |m|
-            assert_match(/@controller_skeleton_test = ControllerSkeletonTest\.find\(uuid: CGI.unescape\(params\[:id\]\)\)/, m)
+            assert_match(
+              /@controller_skeleton_test = ControllerSkeletonTest\.find\(uuid: CGI.unescape\(params\[:id\]\)\)/, m
+            )
           end
 
           assert_instance_method :controller_skeleton_test_params, content do |m|
@@ -64,7 +67,7 @@ module AwsRecord
       def test_generates_api_controller_skeleton_properly
         run_generator %w[ApiControllerSkeletonTest --api --skip-table-config -f]
 
-        assert_file "app/controllers/api_controller_skeleton_tests_controller.rb" do |content|
+        assert_file 'app/controllers/api_controller_skeleton_tests_controller.rb' do |content|
           assert_match(/class ApiControllerSkeletonTestsController < ApplicationController/, content)
           refute_match(/respond_to/, content)
 
@@ -80,7 +83,9 @@ module AwsRecord
           end
 
           assert_instance_method :create, content do |m|
-            assert_match(/@api_controller_skeleton_test = ApiControllerSkeletonTest\.new\(api_controller_skeleton_test_params\)/, m)
+            assert_match(
+              /@api_controller_skeleton_test = ApiControllerSkeletonTest\.new\(api_controller_skeleton_test_params\)/, m
+            )
             assert_match(/@api_controller_skeleton_test\.save/, m)
             assert_match(/@api_controller_skeleton_test\.errors/, m)
           end
@@ -95,13 +100,12 @@ module AwsRecord
           end
         end
 
-        assert_no_file "app/views/api_controller_skeleton_tests/index.html.erb"
-        assert_no_file "app/views/api_controller_skeleton_tests/edit.html.erb"
-        assert_no_file "app/views/api_controller_skeleton_tests/show.html.erb"
-        assert_no_file "app/views/api_controller_skeleton_tests/new.html.erb"
-        assert_no_file "app/views/api_controller_skeleton_tests/_form.html.erb"
+        assert_no_file 'app/views/api_controller_skeleton_tests/index.html.erb'
+        assert_no_file 'app/views/api_controller_skeleton_tests/edit.html.erb'
+        assert_no_file 'app/views/api_controller_skeleton_tests/show.html.erb'
+        assert_no_file 'app/views/api_controller_skeleton_tests/new.html.erb'
+        assert_no_file 'app/views/api_controller_skeleton_tests/_form.html.erb'
       end
-
     end
   end
 end

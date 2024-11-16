@@ -72,7 +72,8 @@ module AwsRecord
       end
 
       def test_model_complex
-        run_generator %w[TestModelComplex forum_uuid:hkey post_id:rkey author_username post_title post_body tags:sset:default_value{Set.new} created_at:datetime:db_attr_name{PostCreatedAtTime} moderation:boolean:default_value{false} --table-config=primary:5-2 -f]
+        run_generator %w[TestModelComplex forum_uuid:hkey post_id:rkey author_username post_title post_body
+                         tags:sset:default_value{Set.new} created_at:datetime:db_attr_name{PostCreatedAtTime} moderation:boolean:default_value{false} --table-config=primary:5-2 -f]
         assert_file 'app/models/test_model_complex.rb'
         assert_file_fixture(
           'test/fixtures/models/test_model_complex.rb',
@@ -96,7 +97,8 @@ module AwsRecord
 
       def test_enforce_errors_handled
         expect do
-          run_generator %w[TestModel_Err uuid:invalid_type:hkey uuid:hkey,invalid_opt uuid:string:hkey,rkey uuid:map:hkey --table-config=primary:5-2 -f]
+          run_generator %w[TestModel_Err uuid:invalid_type:hkey uuid:hkey,invalid_opt uuid:string:hkey,rkey
+                           uuid:map:hkey --table-config=primary:5-2 -f]
         end.to raise_error(SystemExit)
         assert_no_file 'app/models/test_model_err.rb'
       end
@@ -127,7 +129,8 @@ module AwsRecord
       end
 
       def test_model_gsi_basic
-        run_generator %w[TestModelGSIBasic gsi_hkey --gsi=SecondaryIndex:hkey{gsi_hkey} --table-config=primary:5-2 SecondaryIndex:5-2 -f]
+        run_generator %w[TestModelGSIBasic gsi_hkey --gsi=SecondaryIndex:hkey{gsi_hkey} --table-config=primary:5-2
+                         SecondaryIndex:5-2 -f]
         assert_file 'app/models/test_model_gsi_basic.rb'
         assert_file_fixture(
           'test/fixtures/models/test_model_gsi_basic.rb',
@@ -136,7 +139,8 @@ module AwsRecord
       end
 
       def test_model_gsi_keys
-        run_generator %w[TestModelGSIKeys gsi_hkey gsi_rkey --gsi=SecondaryIndex:hkey{gsi_hkey},rkey{gsi_rkey} --table-config=primary:5-2 SecondaryIndex:5-2 -f]
+        run_generator %w[TestModelGSIKeys gsi_hkey gsi_rkey --gsi=SecondaryIndex:hkey{gsi_hkey},rkey{gsi_rkey}
+                         --table-config=primary:5-2 SecondaryIndex:5-2 -f]
         assert_file 'app/models/test_model_gsi_keys.rb'
         assert_file_fixture(
           'test/fixtures/models/test_model_gsi_keys.rb',
@@ -145,7 +149,8 @@ module AwsRecord
       end
 
       def test_model_gsi_mult
-        run_generator %w[TestModelGSIMult gsi_hkey gsi2_hkey --gsi=SecondaryIndex:hkey{gsi_hkey} SecondaryIndex2:hkey{gsi2_hkey} --table-config=primary:5-2 SecondaryIndex:5-2 SecondaryIndex2:5-2 -f]
+        run_generator %w[TestModelGSIMult gsi_hkey gsi2_hkey --gsi=SecondaryIndex:hkey{gsi_hkey}
+                         SecondaryIndex2:hkey{gsi2_hkey} --table-config=primary:5-2 SecondaryIndex:5-2 SecondaryIndex2:5-2 -f]
         assert_file 'app/models/test_model_gsi_mult.rb'
         assert_file_fixture(
           'test/fixtures/models/test_model_gsi_mult.rb',
@@ -155,27 +160,31 @@ module AwsRecord
 
       def test_enforce_given_hkey_is_valid
         expect do
-          run_generator %w[TestModel_Err gsi_rkey --gsi=SecondaryIndex:hkey{gsi_hkey},rkey{gsi_rkey} --table-config=primary:5-2 SecondaryIndex:5-2 -f]
+          run_generator %w[TestModel_Err gsi_rkey --gsi=SecondaryIndex:hkey{gsi_hkey},rkey{gsi_rkey}
+                           --table-config=primary:5-2 SecondaryIndex:5-2 -f]
         end.to raise_error(SystemExit)
         assert_no_file 'app/models/test_model_err.rb'
       end
 
       def test_enforce_given_rkey_is_valid
         expect do
-          run_generator %w[TestModel_Err gsi_hkey --gsi=SecondaryIndex:hkey{gsi_hkey},rkey{gsi_rkey} --table-config=primary:5-2 SecondaryIndex:5-2 -f]
+          run_generator %w[TestModel_Err gsi_hkey --gsi=SecondaryIndex:hkey{gsi_hkey},rkey{gsi_rkey}
+                           --table-config=primary:5-2 SecondaryIndex:5-2 -f]
         end.to raise_error(SystemExit)
         assert_no_file 'app/models/test_model_err.rb'
       end
 
       def test_table_config_gsi_basic_config
         expect do
-          run_generator %w[TestTableConfigGSIBasic gsi_hkey --gsi=SecondaryIndex:hkey{gsi_hkey} --table-config=primary:5-2 -f]
+          run_generator %w[TestTableConfigGSIBasic gsi_hkey --gsi=SecondaryIndex:hkey{gsi_hkey}
+                           --table-config=primary:5-2 -f]
         end.to raise_error(SystemExit)
         assert_no_file 'db/table_config/test_table_config_gsi_basic_config.rb'
       end
 
       def test_table_config_gsi_provided_config
-        run_generator %w[TestTableConfigGSIProvided gsi_hkey --gsi=SecondaryIndex:hkey{gsi_hkey} --table-config=primary:5-2 SecondaryIndex:50-100 -f]
+        run_generator %w[TestTableConfigGSIProvided gsi_hkey --gsi=SecondaryIndex:hkey{gsi_hkey}
+                         --table-config=primary:5-2 SecondaryIndex:50-100 -f]
         assert_file 'db/table_config/test_table_config_gsi_provided_config.rb'
         assert_file_fixture(
           'test/fixtures/table_config/test_table_config_gsi_provided_config.rb',
@@ -184,7 +193,8 @@ module AwsRecord
       end
 
       def test_table_config_gsi_mult_config
-        run_generator %w[TestTableConfigGSIMult gsi_hkey gsi2_hkey --gsi=SecondaryIndex:hkey{gsi_hkey} SecondaryIndex2:hkey{gsi2_hkey} --table-config=primary:5-2 SecondaryIndex:10-11 SecondaryIndex2:40-20]
+        run_generator %w[TestTableConfigGSIMult gsi_hkey gsi2_hkey --gsi=SecondaryIndex:hkey{gsi_hkey}
+                         SecondaryIndex2:hkey{gsi2_hkey} --table-config=primary:5-2 SecondaryIndex:10-11 SecondaryIndex2:40-20]
         assert_file 'db/table_config/test_table_config_gsi_mult_config.rb'
         assert_file_fixture(
           'test/fixtures/table_config/test_table_config_gsi_mult_config.rb',
@@ -194,7 +204,8 @@ module AwsRecord
 
       def test_values_for_nonexistant_index
         expect do
-          run_generator %w[TestModel_Err gsi_hkey --gsi=SecondaryIndex:hkey{gsi_hkey} --table-config=primary:5-2 SecondaryIndexes:50-100]
+          run_generator %w[TestModel_Err gsi_hkey --gsi=SecondaryIndex:hkey{gsi_hkey} --table-config=primary:5-2
+                           SecondaryIndexes:50-100]
         end.to raise_error(SystemExit)
         assert_no_file 'app/models/test_model_err.rb'
       end
@@ -218,7 +229,8 @@ module AwsRecord
       end
 
       def test_length_validations
-        run_generator %w[TestLengthValidations title body --length-validations=title:5-10 body:100-250 --table_config=primary:5-2 -f]
+        run_generator %w[TestLengthValidations title body --length-validations=title:5-10 body:100-250
+                         --table_config=primary:5-2 -f]
         assert_file 'app/models/test_length_validations.rb'
         assert_file_fixture(
           'test/fixtures/models/test_length_validations.rb',
@@ -227,7 +239,8 @@ module AwsRecord
       end
 
       def test_validations
-        run_generator %w[TestValidations title body --required=title body --length-validations=title:5-10 body:100-250 --table_config=primary:5-2 -f]
+        run_generator %w[TestValidations title body --required=title body --length-validations=title:5-10 body:100-250
+                         --table_config=primary:5-2 -f]
         assert_file 'app/models/test_validations.rb'
         assert_file_fixture(
           'test/fixtures/models/test_validations.rb',
@@ -251,8 +264,6 @@ module AwsRecord
       #       it 'allows the generation of a password digest field' do
       #         generate_and_assert_model "TestPasswordDigest", "--table_config=primary:5-2", "--password-digest"
       #       end
-
-
     end
   end
 end

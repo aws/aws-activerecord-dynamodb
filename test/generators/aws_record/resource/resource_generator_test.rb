@@ -20,15 +20,15 @@ module AwsRecord
       end
 
       def test_displays_options
-        content = run_generator ["--help"]
+        content = run_generator ['--help']
         assert_match(/--table-config=primary:R-W/, content)
       end
 
       def test_generates_files
         run_generator %w[InheritedFileGenerationTest --table-config=primary:5-3]
 
-        %w(app/models/inherited_file_generation_test.rb
-           db/table_config/inherited_file_generation_test_config.rb).each do |path|
+        %w[app/models/inherited_file_generation_test.rb
+           db/table_config/inherited_file_generation_test_config.rb].each do |path|
           assert_file(path)
         end
       end

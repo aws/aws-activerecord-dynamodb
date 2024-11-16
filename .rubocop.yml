@@ -1,0 +1,21 @@
+inherit_from: .rubocop_todo.yml
+
+AllCops:
+  NewCops: enable
+  TargetRubyVersion: 2.7
+  SuggestExtensions: false
+  Exclude:
+    - 'test/dummy/**/*.rb'
+    - 'test/fixtures/**/*.rb'
+
+Gemspec/RequireMFA:
+  Enabled: false
+
+Metrics/BlockLength:
+  Exclude:
+    - 'test/**/*.rb'
+
+Naming/FileName:
+  Exclude:
+    - 'gemfiles/*.gemfile'
+    - 'lib/aws-activerecord-dynamodb.rb'
