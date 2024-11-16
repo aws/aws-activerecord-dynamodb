@@ -71,7 +71,11 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ env.ruby_version }}
-          bundler-cache: true
+
+      - name: Install gems
+        run: |
+          bundle config set --local with 'test docs release'
+          bundle install
 
       - name: Rubocop
         run: bundle exec rake rubocop
