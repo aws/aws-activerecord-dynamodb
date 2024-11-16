@@ -17,6 +17,7 @@ module Aws
     module Rails
       VERSION = File.read(File.expand_path('../VERSION', __dir__)).strip
 
+      # @api private
       class Railtie < ::Rails::Railtie
         rake_tasks do
           load 'tasks/aws_record/migrate.rake'
