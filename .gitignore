@@ -1,9 +1,15 @@
 .idea/
+.byebug_history
+
 Gemfile.lock
 gemfiles/*.gemfile.lock
+*.gem
 
+coverage/
 .yardoc/
 doc/
+docs.zip
+.release/
 
 test/dummy/app/models
 test/dummy/db/migrate
