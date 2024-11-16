@@ -1,9 +1,9 @@
 # ActiveRecord models with DynamoDB
 
-[![Gem Version](https://badge.fury.io/rb/aws-activerecord-dynamodb-ruby.svg)](https://badge.fury.io/rb/aws-activerecord-dynamodb-ruby)
-[![Build Status](https://github.com/aws/aws-activerecord-dynamodb-ruby/workflows/CI/badge.svg)](https://github.com/aws/aws-activerecord-dynamodb-ruby/actions)
-[![Github forks](https://img.shields.io/github/forks/aws/aws-activerecord-dynamodb-ruby.svg)](https://github.com/aws/aws-activerecord-dynamodb-ruby/network)
-[![Github stars](https://img.shields.io/github/stars/aws/aws-activerecord-dynamodb-ruby.svg)](https://github.com/aws/aws-activerecord-dynamodb-ruby/stargazers)
+[![Gem Version](https://badge.fury.io/rb/aws-record-rails.svg)](https://badge.fury.io/rb/aws-record-rails)
+[![Build Status](https://github.com/aws/aws-record-rails/workflows/CI/badge.svg)](https://github.com/aws/aws-record-rails/actions)
+[![Github forks](https://img.shields.io/github/forks/aws/aws-record-rails.svg)](https://github.com/aws/aws-record-rails/network)
+[![Github stars](https://img.shields.io/github/stars/aws/aws-record-rails.svg)](https://github.com/aws/aws-record-rails/stargazers)
 
 This gem contains generators for
 [ActiveRecord](https://guides.rubyonrails.org/active_record_basics.html)
@@ -16,7 +16,7 @@ Add this gem to your Rails project's Gemfile:
 
 ```ruby
 gem 'aws-sdk-rails', '~> 4'
-gem 'aws-activerecord-dynamodb', '~> 0'
+gem 'aws-record-rails', '~> 0'
 ```
 
 Then run `bundle install`.

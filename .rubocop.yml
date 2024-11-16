@@ -5,6 +5,7 @@ AllCops:
   TargetRubyVersion: 2.7
   SuggestExtensions: false
   Exclude:
+    - 'tasks/release/**/*'
     - 'test/dummy/**/*.rb'
     - 'test/fixtures/**/*.rb'
 

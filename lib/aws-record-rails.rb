@@ -13,9 +13,15 @@ require_relative 'generators/aws_record/scaffold_controller/scaffold_controller_
 require 'aws-record'
 
 module Aws
-  module ActiveRecord
-    module DynamoDb
+  module Record
+    module Rails
       VERSION = File.read(File.expand_path('../VERSION', __dir__)).strip
+
+      class Railtie < ::Rails::Railtie
+        rake_tasks do
+          load 'tasks/aws_record/migrate.rake'
+        end
+      end
     end
   end
 end
