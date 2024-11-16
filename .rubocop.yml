@@ -19,4 +19,4 @@ Metrics/BlockLength:
 Naming/FileName:
   Exclude:
     - 'gemfiles/*.gemfile'
-    - 'lib/aws-activerecord-dynamodb.rb'
+    - 'lib/aws-record-rails.rb'

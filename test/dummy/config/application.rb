@@ -4,7 +4,7 @@ require 'rails'
 require 'action_controller/railtie'
 require 'active_model'
 
-require 'aws-activerecord-dynamodb'
+require 'aws-record-rails'
 
 # @api private
 module Dummy

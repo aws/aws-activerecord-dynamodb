@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.email        = ['aws-dr-rubygems@amazon.com']
   spec.summary      = 'Aws::Record integration for Rails'
   spec.description  = 'Includes Aws::Record scaffold generators for Rails'
-  spec.homepage     = 'https://github.com/aws/aws-activerecord-dynamodb-ruby'
+  spec.homepage     = 'https://github.com/aws/aws-record-rails'
   spec.license      = 'Apache-2.0'
   spec.files        = Dir['LICENSE', 'CHANGELOG.md', 'VERSION', 'lib/**/*']
 
