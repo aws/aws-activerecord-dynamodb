@@ -2,7 +2,6 @@
 .byebug_history
 
 Gemfile.lock
-gemfiles/*.gemfile.lock
 *.gem
 
 coverage/
