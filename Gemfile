@@ -6,7 +6,7 @@ gemspec
 
 gem 'rake', require: false
 
-case ENV['RAILS_VERSION']
+case ENV.fetch('RAILS_VERSION', nil)
 when '7.1'
   gem 'rails', '~> 7.1'
 when '7.2'
@@ -20,6 +20,7 @@ end
 group :development do
   gem 'byebug', platforms: :ruby
   gem 'rubocop'
+  gem 'rubocop-minitest'
 end
 
 group :test do
