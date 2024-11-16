@@ -2,6 +2,9 @@
 Gemfile.lock
 gemfiles/*.gemfile.lock
 
+.yardoc/
+doc/
+
 test/dummy/app/models
 test/dummy/db/migrate
 test/dummy/log/

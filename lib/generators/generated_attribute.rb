@@ -2,6 +2,7 @@
 
 module AwsRecord
   module Generators
+    # @api private
     class GeneratedAttribute
       OPTS = %w[hkey rkey persist_nil db_attr_name ddb_type default_value].freeze
       INVALID_HKEY_TYPES = %i[map_attr list_attr numeric_set_attr string_set_attr].freeze

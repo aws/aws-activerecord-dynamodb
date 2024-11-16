@@ -2,6 +2,7 @@
 
 module AwsRecord
   module Generators
+    # @api private
     class SecondaryIndex
       PROJ_TYPES = %w[ALL KEYS_ONLY INCLUDE].freeze
       attr_reader :name, :hash_key, :range_key, :projection_type

@@ -8,7 +8,7 @@
 This gem contains Rails
 [scaffolding generators](https://guides.rubyonrails.org/getting_started.html#mvc-and-you)
 for models and controllers using
-[`Aws::Record`](https://docs.aws.amazon.com/sdk-for-ruby/aws-record/api/Aws/Record.html).
+[Aws::Record](https://docs.aws.amazon.com/sdk-for-ruby/aws-record/api/Aws/Record.html).
 
 ## Installation
 
@@ -166,46 +166,52 @@ The syntax for creating an aws-record model follows:
 
 The possible field types are:
 
+```markdown
 | Field Name                       | aws-record attribute type |
 |----------------------------------|---------------------------|
-| `bool \| boolean`                | :boolean_attr             |
-| `date`                           | :date_attr                |
-| `datetime`                       | :datetime_attr            |
-| `float`                          | :float_attr               |
-| `int \| integer`                 | :integer_attr             |
-| `list`                           | :list_attr                |
-| `map`                            | :map_attr                 |
-| `num_set \| numeric_set \| nset` | :numeric_set_attr         |
-| `string_set \| s_set \| sset`    | :string_set_attr          |
-| `string`                         | :string_attr              |
+| bool | boolean                   | :boolean_attr             |
+| date                             | :date_attr                |
+| datetime                         | :datetime_attr            |
+| float                            | :float_attr               |
+| int | integer                    | :integer_attr             |
+| list                             | :list_attr                |
+| map                              | :map_attr                 |
+| num_set | numeric_set | nset     | :numeric_set_attr         |
+| string_set | s_set | sset        | :string_set_attr          |
+| string                           | :string_attr              |
+```
 
 If a type is not provided the generator will assume the field is of type `:string_attr`
 
 Additionally a number of options may be attached as a comma seperated list to the field:
 
-| Field Option Name                           | aws-record option                                                                   |
-|---------------------------------------------|-------------------------------------------------------------------------------------|
-| `hkey`                                      | marks an attribute as a hash_key                                                    |
-| `rkey`                                      | marks an attribute as a range_key                                                   |
-| `persist_nil`                               | will persist nil values in a attribute                                              |
-| `db_attr_name{NAME}`                        | sets a secondary name for an attribute, these must be unique across attribute names |
-| `ddb_type{S\|N\|B\|BOOL\|SS\|NS\|BS\|M\|L}` | sets the dynamo_db_type for an attribute                                            |
-| `default_value{Object}`                     | sets the default value for an attribute                                             |
+```markdown
+| Field Option Name                         | aws-record option                                                                   |
+|-------------------------------------------|-------------------------------------------------------------------------------------|
+| hkey                                      | marks an attribute as a hash_key                                                    |
+| rkey                                      | marks an attribute as a range_key                                                   |
+| persist_nil                               | will persist nil values in a attribute                                              |
+| db_attr_name{NAME}                        | sets a secondary name for an attribute, these must be unique across attribute names |
+| ddb_type{S|N|B|BOOL|SS|NS|BS|M|L}         | sets the dynamo_db_type for an attribute                                            |
+| default_value{Object}                     | sets the default value for an attribute                                             |
+```
 
 Additional options:
 
-| Command Option Names                                                                   | Purpose                                                                                                                          |
-|----------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------|
-| [--skip-namespace], [--no-skip-namespace]                                              | Skip namespace (affects only isolated applications)                                                                              |
-| [--disable-mutation-tracking], [--no-disable-mutation-tracking]                        | Disables dirty tracking                                                                                                          |
-| [--timestamps], [--no-timestamps]                                                      | Adds created, updated timestamps to the model                                                                                    |
-| --table-config=primary:R-W [SecondaryIndex1:R-W]...                                    | Declares the r/w units for the model as well as any secondary indexes                                                            |
-| [--gsi=name:hkey{field_name}[,rkey{field_name},proj_type{ALL\|KEYS_ONLY\|INCLUDE}]...] | Allows for the declaration of secondary indexes                                                                                  |
-| [--required=field1 ...]                                                                | A list of attributes that are required for an instance of the model                                                              |
-| [--length-validations=field1:MIN-MAX...]                                               | Validations on the length of attributes in a model                                                                               |
-| [--table-name=name]                                                                    | Sets the name of the table in DynamoDB, if different than the model name                                                         |
-| [--skip-table-config]                                                                  | Doesn't generate a table config for the model                                                                                    |
+```markdown
+| Command Option Names                                                                   | Purpose                                                                                                                            |
+|----------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------|
+| [--skip-namespace], [--no-skip-namespace]                                              | Skip namespace (affects only isolated applications)                                                                                |
+| [--disable-mutation-tracking], [--no-disable-mutation-tracking]                        | Disables dirty tracking                                                                                                            |
+| [--timestamps], [--no-timestamps]                                                      | Adds created, updated timestamps to the model                                                                                      |
+| --table-config=primary:R-W [SecondaryIndex1:R-W]...                                    | Declares the r/w units for the model as well as any secondary indexes                                                          |
+| [--gsi=name:hkey{field_name}[,rkey{field_name},proj_type{ALL|KEYS_ONLY|INCLUDE}]...]   | Allows for the declaration of secondary indexes                                                                                    |
+| [--required=field1 ...]                                                                | A list of attributes that are required for an instance of the model                                                               |
+| [--length-validations=field1:MIN-MAX...]                                               | Validations on the length of attributes in a model                                                                                 |
+| [--table-name=name]                                                                    | Sets the name of the table in DynamoDB, if different than the model name                                                        |
+| [--skip-table-config]                                                                  | Doesn't generate a table config for the model                                                                                      |
 | [--password-digest]                                                                    | Adds a password field (note that you must have bcrypt has a dependency) that automatically hashes and manages the model password |
-| [--scaffold]                                                                           | Adds helpers methods that are used by the scaffolding                                                                            |
+| [--scaffold]                                                                           | Adds helpers methods that are used by the scaffolding                                                                              |
+```
 
 The included rake task `aws_record:migrate` will run all of the migrations in `app/db/table_config`
