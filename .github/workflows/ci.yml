@@ -49,17 +49,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Set RAILS_VERSION
+        run: echo "RAILS_VERSION=${{ matrix.rails }}" >> $GITHUB_ENV
+
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ matrix.ruby }}
           bundler-cache: true
-
-      - name: Set RAILS_VERSION
-        run: echo "RAILS_VERSION=${{ matrix.rails }}" >> $GITHUB_ENV
-
-      - name: Install gems
-        run: bundle install
 
       - name: Test
         run: bundle exec rake test
@@ -70,15 +67,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Set BUNDLE_WITHOUT
+        run: echo "BUNDLE_WITHOUT=test docs release" >> $GITHUB_ENV
+
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ env.ruby_version }}
-
-      - name: Install gems
-        run: |
-          bundle config set --local with 'development'
-          bundle install
 
       - name: Rubocop
         run: bundle exec rake rubocop
