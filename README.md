@@ -5,9 +5,9 @@
 [![Github forks](https://img.shields.io/github/forks/aws/aws-record-rails.svg)](https://github.com/aws/aws-record-rails/network)
 [![Github stars](https://img.shields.io/github/stars/aws/aws-record-rails.svg)](https://github.com/aws/aws-record-rails/stargazers)
 
-This gem contains generators for
-[ActiveRecord](https://guides.rubyonrails.org/active_record_basics.html)
-models using DynamoDB with
+This gem contains Rails
+[scaffolding generators](https://guides.rubyonrails.org/getting_started.html#mvc-and-you)
+for models and controllers using
 [`Aws::Record`](https://docs.aws.amazon.com/sdk-for-ruby/aws-record/api/Aws/Record.html).
 
 ## Installation
