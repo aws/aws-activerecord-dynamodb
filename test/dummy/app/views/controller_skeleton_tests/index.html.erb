@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Controller Skeleton Tests</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Uuid</th>
+      <th>Name</th>
+      <th>Age</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @controller_skeleton_tests.each do |controller_skeleton_test| %>
+      <tr>
+        <td><%= controller_skeleton_test.uuid %></td>
+        <td><%= controller_skeleton_test.name %></td>
+        <td><%= controller_skeleton_test.age %></td>
+        <td><%= link_to 'Show', controller_skeleton_test %></td>
+        <td><%= link_to 'Edit', edit_controller_skeleton_test_path(controller_skeleton_test) %></td>
+        <td><%= link_to 'Destroy', controller_skeleton_test, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Controller Skeleton Test', new_controller_skeleton_test_path %>

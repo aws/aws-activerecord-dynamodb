@@ -1,0 +1,22 @@
+<%= form_with(model: inherited_file_generation_test, local: true) do |form| %>
+  <% if inherited_file_generation_test.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(inherited_file_generation_test.errors.count, "error") %> prohibited this inherited_file_generation_test from being saved:</h2>
+
+      <ul>
+      <% inherited_file_generation_test.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :uuid %>
+    <%= form.text_field :uuid %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

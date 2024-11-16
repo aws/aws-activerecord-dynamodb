@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Inherited File Generation Tests</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Uuid</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @inherited_file_generation_tests.each do |inherited_file_generation_test| %>
+      <tr>
+        <td><%= inherited_file_generation_test.uuid %></td>
+        <td><%= link_to 'Show', inherited_file_generation_test %></td>
+        <td><%= link_to 'Edit', edit_inherited_file_generation_test_path(inherited_file_generation_test) %></td>
+        <td><%= link_to 'Destroy', inherited_file_generation_test, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Inherited File Generation Test', new_inherited_file_generation_test_path %>

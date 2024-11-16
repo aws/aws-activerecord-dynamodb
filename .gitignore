@@ -1,4 +1,7 @@
-.ruby-version
-.yardoc/
+.idea/
 Gemfile.lock
-doc
+gemfiles/*.gemfile.lock
+
+test/dummy/app/models
+test/dummy/db/migrate
+test/dummy/log/
