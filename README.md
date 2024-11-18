@@ -1,4 +1,4 @@
-# ActiveRecord models with DynamoDB
+# Aws::Record generators for Rails
 
 [![Gem Version](https://badge.fury.io/rb/aws-record-rails.svg)](https://badge.fury.io/rb/aws-record-rails)
 [![Build Status](https://github.com/aws/aws-record-rails/workflows/CI/badge.svg)](https://github.com/aws/aws-record-rails/actions)
