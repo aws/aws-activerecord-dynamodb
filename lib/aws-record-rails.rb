@@ -14,14 +14,12 @@ require 'aws-record'
 
 module Aws
   module Record
-    module Rails
+    # Rails tasks for Aws::Record
+    class Railtie < ::Rails::Railtie
       VERSION = File.read(File.expand_path('../VERSION', __dir__)).strip
 
-      # @api private
-      class Railtie < ::Rails::Railtie
-        rake_tasks do
-          load 'tasks/aws_record/migrate.rake'
-        end
+      rake_tasks do
+        load 'tasks/aws_record/migrate.rake'
       end
     end
   end
