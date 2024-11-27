@@ -14,6 +14,7 @@ require 'aws-record'
 
 module Aws
   module Record
+    # Rails tasks for Aws::Record
     class Railtie < ::Rails::Railtie
       VERSION = File.read(File.expand_path('../VERSION', __dir__)).strip
 
