@@ -15,7 +15,7 @@ for models and controllers using
 Add this gem to your Rails project's Gemfile:
 
 ```ruby
-gem 'aws-sdk-rails', '~> 4'
+gem 'aws-sdk-rails', '~> 5'
 gem 'aws-record-rails', '~> 0'
 ```
 
